@@ -22,8 +22,14 @@ namespace WebDatabase
             //EF är en ORM = object relational mapper
             //EF kopplar ihop databastabellen med en klass i c# windowsprogrammet
 
-            
 
+
+            DisplayTables();
+        }
+
+        private void DisplayTables()
+        {
+            listBox1.Items.Clear();
             foreach (var item in MyDataBase.Tables)
             {
                 listBox1.Items.Add(item);
@@ -50,6 +56,7 @@ namespace WebDatabase
             MyDataBase.SaveChanges();
 
             MessageBox.Show("Data saved to DB");
+            DisplayTables();
         }
     }
 }
